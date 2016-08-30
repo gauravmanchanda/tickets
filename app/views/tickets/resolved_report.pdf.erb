@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Resolved Orders</title>
+</head>
+<body>
+<table>
+  <thead>
+    <th width="18%">
+      Title
+    </th>
+    <th width="50%">
+      Description
+    </th>
+    <th width="8%">
+      Customer
+    </th>
+    <th width="8%">
+      Agent
+    </th>
+    <th width="8%">
+      Date Created
+    </th>
+    <th width="8%">
+      Date Resolved
+    </th>
+  </thead>
+  <% @tickets.each do |ticket| %>
+    <tr>
+      <td>
+        <%= ticket.title %>
+      </td>
+      <td>
+        <%= ticket.description %>
+      </td>
+      <td>
+        <%= ticket.customer.full_name %>
+      </td>
+      <td>
+        <%= ticket.agent.full_name %>
+      </td>
+      <td>
+        <%= ticket.created_at.to_s(:custom) %>
+      </td>
+      <td>
+        <%= ticket.updated_at.to_s(:custom) %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+</body>
+</html>

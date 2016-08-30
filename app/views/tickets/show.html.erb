@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+      <div class="col-md-1">
+        <%= link_to 'Back to Tickets Page', tickets_path, class: 'label label-default' %>
+      </div>
+  </div>
+  <%= render 'ticket' %>
+  <div class="row">
+    <div class="col-md-8">
+      <hr>
+      <h4>Comments</h4>
+      <hr>
+      <div id="comments">
+        <%= render partial: 'comment', collection: @ticket.comments %>
+      </div>
+    </div>
+  </div>
+  <%= render 'comment_form' %>
+</div>
+
+<% content_for :head do %>
+   <%= stylesheet_link_tag :tickets %>
+<% end %>

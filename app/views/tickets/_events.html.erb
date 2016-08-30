@@ -1,0 +1,9 @@
+<div class="btn-group">
+  <% ticket.aasm.events.map(&:name).each do |evt| %>
+    <% if evt.eql?(:assign) %>
+      <%= link_to("Assign To Agent", assign_ticket_path , class: "btn btn-danger btn-md", remote: true, method: :patch) %>
+    <% else %>
+      <%= link_to(evt.to_s.capitalize, next_event_ticket_path(event: evt.to_s), class: "btn btn-success btn-md", remote: true, method: :patch) %>
+    <% end %>
+  <% end %>
+</div>

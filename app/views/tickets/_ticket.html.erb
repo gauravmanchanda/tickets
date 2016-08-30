@@ -1,0 +1,47 @@
+<div class="row">
+    <div class="col-md-12">
+      <div id="postlist">
+        <div class="panel">
+          <div class="panel-heading">
+            <div class="text-right">
+              <div class="row">
+                <div class="col-sm-7">
+                  <h3 class="pull-left"><%= @ticket.title %></h3>
+                </div>
+                <div class="col-sm-5">
+                  <h4 class="pull-right">
+                    <small>
+                    Created At: <em><%= @ticket.created_at.to_s(:custom) %></em></small><br>
+                    <small>
+                    Last Updated At: <em><%= @ticket.updated_at.to_s(:custom) %></em></small>
+                  </h4>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel-body">
+            <%= @ticket.description %>
+          </div>
+          <div class="panel-footer">
+            <span class="label label-info" id="event_label"><%= @ticket.aasm_state.capitalize %></span>
+            <span class="label pull-right"><mark>Created By: <%= @ticket.customer.full_name %></mark></span>
+            <span class="label pull-right">
+              <mark>
+                Assigned To: <span id="assignee"><%= @ticket.try(:agent).try(:full_name) %></span>
+              </mark>
+            </span>
+          </div>
+          <br>
+        </div>
+      </div>
+      <div class="col-md-10">
+          <% if can? :manage, @ticket %>
+            <div id="next_events">
+              <%= render 'events', ticket: @ticket %>
+            </div>
+          <% end %>
+      </div>
+      <div class="col-md-1">
+      </div>
+    </div>
+  </div>

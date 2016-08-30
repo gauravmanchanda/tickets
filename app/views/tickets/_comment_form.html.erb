@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-md-8">
+    <%= form_for Comment.new, remote: true do |f| %>
+      <div class="form-vertical form-group form-group-lg row">
+        <div class="col-xs-10">
+          <%= f.text_area :body, class: "form-control", required: true %>
+        </div>
+      </div>
+      <%= f.hidden_field :author_id, value: current_user.id %>
+      <%= f.hidden_field :ticket_id, value: @ticket.id %>
+      <div class="form-vertical form-group form-group-lg row">
+        <div class="col-xs-10 col-sm-4 col-md-2 col-md-offset-8">
+          <%= f.submit "Submit", class: "btn btn-success btn-md btn-block" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

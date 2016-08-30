@@ -1,0 +1,10 @@
+<div class="comments-list">
+  <div class="media">
+   <p class="pull-right history"><small><%= comment.created_at.to_s(:custom) %></small></p>
+    <div class="media-body">
+      <h5 class="media-heading user_name"><%= comment.author.full_name %></h5>
+      <%= comment.body %>
+    </div>
+  </div>
+</div>
+<hr>

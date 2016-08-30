@@ -1,0 +1,14 @@
+// Place all the styles related to the tickets controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.user_name{
+    font-size:14px;
+    font-weight: bold;
+    color: rgb(102, 189, 221);
+}
+.comments-list .media{
+    border-bottom: 1px dotted #ccc;
+}
+.history{
+    color: rgb(200, 199, 199);
+}

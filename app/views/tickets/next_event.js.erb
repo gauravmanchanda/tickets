@@ -1,0 +1,6 @@
+<% if @success %>
+  $('#event_label').text("<%= @ticket.aasm_state.capitalize %>")
+  $('#next_events').html("<%= escape_javascript(render('events', ticket: @ticket)) %>")
+<% else %>
+
+<% end %>

@@ -1,0 +1,7 @@
+<% if @success %>
+  $('#event_label').text("<%= @ticket.aasm_state.capitalize %>")
+  $('#assignee').text("<%= @ticket.agent.full_name %>")
+  $('#next_events').html("<%= escape_javascript(render('events', ticket: @ticket)) %>")
+<% else %>
+  alert("Unable to assign Ticket to Agent. Please try again.")
+<% end %>

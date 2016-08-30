@@ -1,0 +1,6 @@
+<% if @success %>
+  $('#comments').append('<%= escape_javascript(render('tickets/comment', comment: @comment)) %>')
+  $('#comment_body').val('')
+<% else %>
+  alert('BoooHooo!!')
+<% end %>

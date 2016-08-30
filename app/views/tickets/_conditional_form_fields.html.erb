@@ -1,0 +1,17 @@
+<% unless current_user.is_a?(Customer) %>
+  <div class="form-vertical form-group form-group-lg row">
+    <div class="col-xs-10 col-xs-offset-1">
+      <%= email_field_tag :customer_email, nil, placeholder: "Customer Email", class: "form-control", required: true %>
+    </div>
+  </div>
+<% end %>
+
+<% if current_user.is_a?(Agent) %>
+  <%= f.hidden_field :agent_id, value: current_user.id %>
+<% elsif current_user.is_a?(Admin) %>
+  <div class="form-vertical form-group form-group-lg row">
+    <div class="col-xs-10 col-xs-offset-1">
+      <%= f.select "agent_id", Agent.all.collect {|a| [a.full_name, a.id]}, {include_blank: "Select Agent"}, class: "form-control", required: true %>
+    </div>
+  </div>
+<% end %>

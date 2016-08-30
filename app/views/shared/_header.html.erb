@@ -1,0 +1,31 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to("Customer Support", "/" , class: "navbar-brand") %>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <% if user_signed_in? %>
+        <ul class="nav navbar-nav">
+          <li>
+            <%= link_to("Tickets", tickets_path) %>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <%= link_to("Sign Out", destroy_user_session_path, method: :delete) %>
+          </li>
+          <li>
+            <%= link_to("Welcome, #{current_user.full_name}", "javascript:void()") %>
+          </li>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</nav>
