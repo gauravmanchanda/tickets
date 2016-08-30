@@ -5,6 +5,8 @@ source 'https://rubygems.org'
 gem 'rails', '5.0.0'
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.3.18', '< 0.5'
+# Use postgres for heroku deployment
+gem 'pg', '0.18.4'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
