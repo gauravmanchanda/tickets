@@ -10,6 +10,7 @@ class Ticket < ApplicationRecord
   scope :closed_in_last_month, -> { where(["tickets.updated_at > ?", 1.month.ago]) }
 
   validates :title, :description, presence: true
+  validates :customer, presence: true
 
   ## State trasitions using Acts As State Machine
   aasm do

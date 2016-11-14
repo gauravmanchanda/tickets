@@ -18,20 +18,9 @@ class TicketsController < ApplicationController
   # POST /tickets
   def create
     @ticket = the_tickets.new(ticket_params)
-    if params[:customer_email]
-      if customer = Customer.find_by(email: params[:customer_email])
-        @ticket.customer_id = customer.id
-        @ticket.assign
-      else
-        flash[:danger] = "Customer Email is Invalid"
-        render :new and return
-      end
-    end
-    if @ticket.save
-      redirect_to tickets_path, notice: "Ticket created successfully."
-    else
-      redirect_to tickets_path, error: "Unable to create Ticket. Please try again."
-    end
+    set_customer if params[:customer_email]
+    @ticket.assign
+    save_ticket_or_bust
   end
 
   def assign
@@ -73,5 +62,22 @@ class TicketsController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def ticket_params
       params.require(:ticket).permit(:title, :description, :agent_id)
+    end
+
+    def set_customer
+      if customer = Customer.find_by(email: params[:customer_email])
+        @ticket.customer_id = customer.id
+      else
+        flash.now[:danger] = "Customer Email is Invalid. "
+      end
+    end
+
+    def save_ticket_or_bust
+      if @ticket.save
+        redirect_to tickets_path, notice: "Ticket created successfully."
+      else
+        flash.now[:danger] = "#{flash.now[:danger]}Unable to create Ticket. Please try again."
+        render :new
+      end
     end
 end

@@ -6,9 +6,9 @@ RSpec.describe Ticket, type: :model do
   let(:ticket) { create :ticket, customer: customer, agent: agent }
 
   ## Testing belongs_to associations
-  it { Ticket.reflect_on_association(:customer).macro.should  eq(:belongs_to) }
-  it { Ticket.reflect_on_association(:agent).macro.should  eq(:belongs_to) }
-  it { Ticket.reflect_on_association(:comments).macro.should  eq(:has_many) }
+  it { expect(Ticket.reflect_on_association(:customer).macro).to  eq(:belongs_to) }
+  it { expect(Ticket.reflect_on_association(:agent).macro).to  eq(:belongs_to) }
+  it { expect(Ticket.reflect_on_association(:comments).macro).to  eq(:has_many) }
 
   context 'when new ticket' do
     it "should set 'unassigned' as the default state" do

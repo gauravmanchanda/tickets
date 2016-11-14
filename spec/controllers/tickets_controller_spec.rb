@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe TicketsController, type: :controller do
 
-  include Devise::TestHelpers
+  include Devise::Test::ControllerHelpers
 
   describe 'index' do
 
@@ -16,8 +16,8 @@ RSpec.describe TicketsController, type: :controller do
 
       it 'should redirect user to sign_in page' do
         get :index
-        response.should be_redirect
-        response.should redirect_to(new_user_session_path)
+        expect(response).to be_redirect
+        expect(response).to redirect_to(new_user_session_path)
       end
 
     end
@@ -29,9 +29,9 @@ RSpec.describe TicketsController, type: :controller do
         before do
           allow(customer).to receive(:authenticatable_salt).and_return(true)
           allow(customer).to receive(:to_key)
-          sign_in :user, customer
-          controller.stub(:authenticate_user!).and_return(true)
-          controller.stub(:current_user).and_return(customer)
+          sign_in customer, scope: :user
+          allow(controller).to receive(:authenticate_user!).and_return(true)
+          allow(controller).to receive(:current_user).and_return(customer)
           allow(customer).to receive(:tickets).and_return(tickets)
         end
 
@@ -46,9 +46,9 @@ RSpec.describe TicketsController, type: :controller do
         before do
           allow(agent).to receive(:authenticatable_salt).and_return(true)
           allow(agent).to receive(:to_key)
-          sign_in :user, agent
-          controller.stub(:authenticate_user!).and_return(true)
-          controller.stub(:current_user).and_return(agent)
+          sign_in agent, scope: :user
+          allow(controller).to receive(:authenticate_user!).and_return(true)
+          allow(controller).to receive(:current_user).and_return(agent)
           allow(agent).to receive(:tickets).and_return(tickets)
         end
 
@@ -63,9 +63,9 @@ RSpec.describe TicketsController, type: :controller do
         before do
           allow(agent).to receive(:authenticatable_salt).and_return(true)
           allow(agent).to receive(:to_key)
-          sign_in :user, agent
-          controller.stub(:authenticate_user!).and_return(true)
-          controller.stub(:current_user).and_return(agent)
+          sign_in agent, scope: :user
+          allow(controller).to receive(:authenticate_user!).and_return(true)
+          allow(controller).to receive(:current_user).and_return(agent)
           allow(agent).to receive(:tickets).and_return(tickets)
         end
 
@@ -76,8 +76,8 @@ RSpec.describe TicketsController, type: :controller do
 
         it "should render the index template" do
           get :index
-          response.should be_success
-          response.should render_template('index')
+          expect(response).to be_success
+          expect(response).to render_template('index')
         end
       end
     end
