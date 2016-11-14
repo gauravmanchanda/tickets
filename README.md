@@ -1,4 +1,4 @@
-![logo](https://circleci.com/gh/gauravmanchanda/tickets.svg?style=shield)
+[![](https://circleci.com/gh/gauravmanchanda/tickets.svg?style=shield)](https://circleci.com/gh/gauravmanchanda/tickets)
 
 # Tickets
 ## Customer Support Ticketing solution
