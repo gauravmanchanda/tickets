@@ -1,3 +1,5 @@
+![logo](https://circleci.com/gh/gauravmanchanda/tickets.svg?style=shield)
+
 # Tickets
 ## Customer Support Ticketing solution
 
