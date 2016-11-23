@@ -1,3 +1,4 @@
+[![Code Climate](https://codeclimate.com/github/gauravmanchanda/tickets/badges/gpa.svg)](https://codeclimate.com/github/gauravmanchanda/tickets)
 [![](https://circleci.com/gh/gauravmanchanda/tickets.svg?style=shield)](https://circleci.com/gh/gauravmanchanda/tickets)
 
 # Tickets
