@@ -60,4 +60,4 @@ You can run Cucumber features using:
 The code is a Ruby on Rails Frontend and Backend app.
 
 ####Demo URL
-[https://frozen-journey-57569.herokuapp.com](https://frozen-journey-57569.herokuapp.com/)
+[https://cust-care-57569.herokuapp.com](https://cust-care-57569.herokuapp.com/)
