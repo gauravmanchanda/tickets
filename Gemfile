@@ -31,6 +31,7 @@ gem 'aasm', '4.11.0'
 gem 'bootstrap-sass', '3.3.7'
 gem 'wicked_pdf', '1.0.6'
 gem 'wkhtmltopdf-binary', '0.12.3'
+gem 'rollbar'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

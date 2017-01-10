@@ -1,20 +1,6 @@
 Once in the Code folder, carry out the following steps:
 
-The app uses MySQL & the mysql2 gem, so in order to install mysql2 gem, you will need to install libmysqlclient-dev package on your system.
-
-On Ubuntu you can do it via:
-
-  sudo apt-get install libmysqlclient-dev
-
-On CentOS:
-
-  sudo yum install mysql-devel
-
-On Mac:
-
-  brew install mysql
-
-You might need to update the DYLD_LIBRARY_PATH envronment variable.
+The app uses PostgreSQL
 
 After the above is done, Go to the tickets folder in the Code directory and carry out the following steps:
 
